@@ -77,9 +77,9 @@
                 </div>
                 <div class="row-content">
                     <label class="label text" for="salary">Choose your salary: </label>
-                    <input class="input" type="range" name="salary" id="salary" min="300"
-                    mex="500" step="10" value="400">
-                    <output class="salary-output-text" for="salary">400</output>
+                    <input class="input" type="range" id="salary" name="salary" min="100"
+                    max="500" step="10"  value="400">
+                    <output class="salary-output" for="salary">400</output>
                 </div>
                 <!-- UC5 -->
                 <div class="row-content">
@@ -154,6 +154,16 @@
                     </div>
                 </div>
             </form>
+            
         </div>
+        <!-- UC8 -->
+        <script>
+            const salary = document.querySelector('#salary');
+            const output = document.querySelector('.salary-output');
+            output.textContent = salary.value;
+            salary.addEventListener('input', function(){
+                output.textContent = salary.value;
+            });
+        </script>
     </body>
 </html>
