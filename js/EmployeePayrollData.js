@@ -1,20 +1,10 @@
 class EmployeePayrollData {
-    //property
-    id;
-    salary;
-    gender;
-    startDate;
-
-    //constructor
-    constructor(...params) {
-        this.id = params[0];
-        this.name = params[1];
-        this.salary = params[2];
-        this.gender = params[3];
-        this.startDate = params[4]
+    //getter and setter method
+    get id(){return this._id;}
+    set id(id){
+        this._id = id;
     }
 
-    //getter and setter method
     get name() { return this._name; }
     set name(name) {
         let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
@@ -23,24 +13,43 @@ class EmployeePayrollData {
         else throw "Name is incorrect";    
     }
 
+    get profilePic(){return this._profilePic;}
+    set profilePic(profilePic){
+        this._profilePic = profilePic;
+    }
+
+    get gender(){return this._gender;}
+    set gender(gender){
+        this._gender = gender;
+    }
+
+    get department(){return this._department;}
+    set department(department){
+        this._department = department;
+    }
+
+    get salary(){return this._salary;}
+    set salary(salary){
+        this._salary = salary;
+    }
+
+    get note(){return this._note;}
+    set note(note){
+        this._note = note;
+    }
+
+    get startDate(){this._startDate;}
+    set startDate(startDate){
+        this._startDate = startDate
+    }
+
     //method
     toString() {
         const options = { year: 'numeric', month: 'long', day: 'numeric'};
         const empDate = !this.startDate ? "undefined" :
                         this.startDate.toLocaleDateString("en-us", options);
-        return "id= " + this.id + ", name= " + this.name + ", salary= " + this.salary +
-            ", gender= " + this.gender + ", startDate= " + empDate;
+        return "id= " + this.id + ", name= " + this.name + ", gender= "+this.gender+", profilePic= "+this.profilePic+
+        ", profilePic= "+this.profilePic+", department= "+this.department+", salary= " + this.salary +
+            ", gender= " + this.gender + ", startDate= " + empDate+", note= "+this.note;
     }
 }
-let employeePayrollData = new EmployeePayrollData(1, "Mark", 300);
-console.log(employeePayrollData.toString());
-employeePayrollData.id = 2;
-try{
-    employeePayrollData.name = "john";
-    console.log(employeePayrollData.toString());
-}catch(e){
-    console.error(e);
-}
-
-let newEmp = new  EmployeePayrollData(3,"Terrisa", 500, "F", new Date());
-console.log(newEmp.toString());
